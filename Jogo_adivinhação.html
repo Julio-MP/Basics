@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo Adivinha</title>
+</head>
+<style type="text/css">
+body { background-color: #1C1C1C;
+
+}
+h1 { color: gold;
+    text-align: center;
+    font-size: 50px;
+}
+
+h2{
+    color: goldenrod;
+    font-size: 35px;
+    text-align: center;
+
+}
+
+p{
+
+}
+
+input {
+    position: fixed;
+    top: 400px;
+    left: 20px;
+    border: 2px solid #000;
+    }
+
+button {
+    position: fixed;
+    top: 400px;
+    left: 200px;
+    border: 2px solid #000;
+}
+
+</style>
+<body>
+    <input/>
+    <button>Compare com o meu segredo</button>
+    <h1>Tente advinhar o número</h1>
+    <h2>Escolha um número de 1 a 10 e veja se acerta!</h2>
+
+
+    <script>
+
+
+
+
+
+
+
+        //No programa anterior nos determonamos quais eram os segredos, mas queremos que eles sejam gerados aleatoriamente sem precisarmos definir manualmente.
+        //var segredos = [5,7,10,2]; portanto vamos descartar isso 
+        var segredos = []
+        //para conseguirmos colcoar varios math.random ai dentro podemos usar o push
+        //Mas para nao ficarmso colocando de um em um e deixar o codigo gigante vamos colcoar em uma funlção e um while.:
+        function sorteia() {
+            segredos.push(Math.round(Math.random() *10));
+        }
+
+        var contagemSorteia = 1
+
+        while (contagemSorteia<=4) {
+            sorteia()
+            contagemSorteia++
+        }
+
+        console.log(segredos)
+        var input = document.querySelector("input");
+            input.focus();
+        function verifica() {
+                var achou = false
+                for(var posicao = 0; posicao < segredos.length; posicao++) {
+
+                    if(input.value == segredos[posicao]) {
+
+                        alert("Você ACERTOU!");
+                        achou = true
+                        break;
+            } 
+                }
+
+                        if (achou == false) {
+                            alert("Você errou!!")
+                        }
+
+                    input.value = "";
+                    input.focus();
+
+        }
+
+        var button = document.querySelector("button");
+
+        button.onclick = verifica;
+
+
+
+
+
+
+
+
+    </script>
+    
+</body>
+</html>
+
+
+
+

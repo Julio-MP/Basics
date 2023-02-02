@@ -1,0 +1,59 @@
+
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculando IMC</title>
+</head>
+
+<style type="text/css">
+    body{
+        background-color: gray;
+    }
+</style>
+
+<body>
+    <header>
+        <h1>IMC calculado</h1>    
+    </header>
+    <main>
+        <script>
+            function calculaIMC(altura, peso) {
+                var IMC = peso/(altura*altura)
+                return IMC
+            }    
+
+            var nome = prompt("Insira seu nome")
+            var alturaRecebida = prompt(nome + ", insira sua altura (ultilizando . na separação)")
+            var pesoRecebido = prompt("Agora insira seu peso")
+            document.write("<br><br> O seu IMC é " + calculaIMC(alturaRecebida, pesoRecebido))
+            document.write("<br>Seu IMC arredondado é  " +  Math.round(calculaIMC(alturaRecebida, pesoRecebido)))
+
+
+            var IMCrecebido = calculaIMC(alturaRecebida,pesoRecebido)
+        
+            if(IMCrecebido<18.5) {
+                document.write("<br>Isso é abaixo do recomendado pela OMS, que é entre 18.5 e 35 <br><br>")
+            }
+
+
+            if(IMCrecebido>35) {
+                document.write("<br>Isso é acima do recomendado pela OMS [entre 18.5 e 35] <br><br>")
+            }
+
+
+
+            if (IMCrecebido>=18.5) {
+                if(IMCrecebido<=35) {
+                    document.write("<br> Isso é dentro do esperado pela OMS [entre 18.5 e 35]")
+                    
+                }
+            }
+            //Mas desse jeito fica com muita coisa escrita, quando nós queremos usar duas condições ao mesmo tempo é mais prático usar o &&, em um if só, então ficaria if(IMCrecebido>=18.5 && IMCrecebido<=35), assim fiacria um código menor e mais simples de se entender. 
+        </script>    
+    </main>
+    
+    
+</body>
+</html>
